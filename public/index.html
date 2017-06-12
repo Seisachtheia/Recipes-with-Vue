@@ -23,47 +23,8 @@
             -->
         </header>
 
-       <main class="page-index" id="app">
-
-            <todo-item></todo-item>
-
-            <table class="tasks">
-                <thead>
-                <tr>
-                    <th>Assigned by:</th>
-                    <th>Task Description</th>
-                    <th>Complete</th>
-                </tr>
-                </thead>
-
-                <tbody>
-
-                    <tr v-for="task in tasks">
-                        <app-task 
-                            name="task.name" 
-                            task="task.task" 
-                            status="task.status">
-                        </app-task>
-                    </tr>
-
-                <tr v-for="task in tasks">
-                    <td>{{task.name}}</td>
-                    <td>{{task.task}}</td>
-                    <td class="check-it"> 
-                        <input type="checkbox" name="complete" v-model="task.status"/>
-                    </td>
-                </tr>
-
-                </tbody>
-            </table>
-
-            <section>
-                <div class="add-new">
-                    <button v-on:click="addTask">Add New Task</button>
-                </div>
-            </section>
-            
-        </main>  
+        <main class="page-index">
+        </main> 
 
         <footer>
             <!-- add this along with JQuerry to load in an external footer 
@@ -75,28 +36,12 @@
     </body>
     <section>
         <script type="text/javascript" src="bundle.js" charset="utf-8"></script> 
-        
-        <script type="text/javascript" src="bundle.js" charset="utf-8"></script> 
-        <script>
-            var app = new Vue({
-                el: '#app',
-                data: {
-                    tasks: []
-                },
-                methods: {
-                    addTask: function() {
-                        var name = window.prompt('What is your name?');
-                        var task = window.prompt("What is the task?");
-                        this.tasks.push(
-                            {
-                                name : name,
-                                task : task,
-                                status : false
-                            }
-                        );
-                    }
-                }
-            })
-        </script>
+        <!-- 
+            JQuerry
+            <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+
+            Your Js
+            <script src="js/main.js"></script>
+        -->
     </section>
 </html>
