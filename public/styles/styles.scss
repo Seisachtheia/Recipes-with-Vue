@@ -1,0 +1,79 @@
+//mixin Imports
+@import "core/mixins";
+
+// Core Imports
+@import "core/variables";
+@import "core/typography";
+
+// Views Partials
+@import "components/header";
+@import "components/footer";
+
+// Page Imports
+@import "pages/index";
+
+
+.page-index {
+    max-width: $desktop;
+    margin:0 auto;
+}
+
+html {
+    background-color: $pcolor-4;
+}
+
+.tasks {
+    background-color: $pcolor-3;
+    color: $pcolor-1;
+    margin-top:20px;
+    padding:15px;
+    width:100%;
+    border-bottom: 1px $pcolor-4 solid;
+    border-right: 1px $pcolor-4 solid;
+    border-collapse: collapse;
+
+    th {
+        text-align:left;
+        padding:10px;
+        border-right: 1px $pcolor-4 solid;
+        font-size:24px;
+    }
+
+    tr {
+        padding:10px;
+        border-bottom: 1px $pcolor-4 solid;
+        border-right: 1px $pcolor-4 solid;
+        border-collapse: collapse;
+    }    
+
+    td {
+        padding:15px;
+        border-bottom: 1px $pcolor-4 solid;
+        border-right: 1px $pcolor-4 solid;
+        border-collapse: collapse;
+        font-size:20px;
+    }
+}
+
+.check-it {
+    width:50px;
+    text-align:center;
+}
+
+.task-create {
+    margin: 0 auto;
+    padding-top: 25px;
+    min-width: 450px;
+    min-height: 250px;
+    max-height: 400px;
+}
+
+.add-new {
+    margin-top:10px;
+    float:right;
+    
+    button {
+        width: 135px;
+        height: 55px;
+    }
+}

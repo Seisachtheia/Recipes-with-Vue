@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <meta name="theme-color" content="#000000">
+        
+        <title>Site Title</title>
+        <!--
+            Some Google Fonts
+
+            <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">    
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        -->
+    </head>
+    <body base="./">
+
+        <header>
+            <!-- add this along with JQuerry to load in an external header 
+                <script>$('header').load('./header.html')</script> 
+            -->
+        </header>
+
+       <main class="page-index" id="app">
+
+            <todo-item></todo-item>
+
+            <table class="tasks">
+                <thead>
+                <tr>
+                    <th>Assigned by:</th>
+                    <th>Task Description</th>
+                    <th>Complete</th>
+                </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr v-for="task in tasks">
+                        <app-task 
+                            name="task.name" 
+                            task="task.task" 
+                            status="task.status">
+                        </app-task>
+                    </tr>
+
+                <tr v-for="task in tasks">
+                    <td>{{task.name}}</td>
+                    <td>{{task.task}}</td>
+                    <td class="check-it"> 
+                        <input type="checkbox" name="complete" v-model="task.status"/>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <section>
+                <div class="add-new">
+                    <button v-on:click="addTask">Add New Task</button>
+                </div>
+            </section>
+            
+        </main>  
+
+        <footer>
+            <!-- add this along with JQuerry to load in an external footer 
+                <script>$('footer').load('./footer.html')</script> 
+            -->
+        </footer>
+ 
+        
+    </body>
+    <section>
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script> 
+        
+        <script type="text/javascript" src="bundle.js" charset="utf-8"></script> 
+        <script>
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    tasks: []
+                },
+                methods: {
+                    addTask: function() {
+                        var name = window.prompt('What is your name?');
+                        var task = window.prompt("What is the task?");
+                        this.tasks.push(
+                            {
+                                name : name,
+                                task : task,
+                                status : false
+                            }
+                        );
+                    }
+                }
+            })
+        </script>
+    </section>
+</html>
